@@ -93,6 +93,7 @@ export default function JobApplicationCard({
   return (
     <>
       <Card
+      suppressHydrationWarning={true}
         className="cursor-pointer transition-shadow hover:shadow-lg bg-white group shadow-sm"
         {...dragHandleProps}
       >
