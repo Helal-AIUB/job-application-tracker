@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { signUp } from "@/lib/auth/auth-client";
+import { signOut, signUp } from "@/lib/auth/auth-client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
@@ -42,7 +42,8 @@ export default function SignUp() {
       if (result.error) {
         setError(result.error.message ?? "Failed to sign up");
       } else {
-        router.push("/dashboard");
+        await signOut();
+        router.push("/sign-in");
       }
     } catch (err) {
       setError("An unexpected error occurred");
